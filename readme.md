@@ -1,3 +1,6 @@
+http://github.com/asdawn/fix-geometry/raw/master/images/01-language.png
+ ![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
+
 # 使用QGIS修正Polygon中的错误
 ### 1. 准备工作
 #### 1.1 安装QGIS
