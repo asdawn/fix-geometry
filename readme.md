@@ -1,5 +1,5 @@
-http://github.com/asdawn/fix-geometry/raw/master/images/01-language.png
- ![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
+
+
 
 # 使用QGIS修正Polygon中的错误
 ### 1. 准备工作
@@ -16,7 +16,7 @@ http://github.com/asdawn/fix-geometry/raw/master/images/01-language.png
 
 保存后退出，再启动后就是中文菜单了。
 
-01-language.png
+ ![image](http://github.com/asdawn/fix-geometry/raw/master/images/01-language.png)
 
 #### 1.2 准备多边形数据文件
 
@@ -30,9 +30,9 @@ http://github.com/asdawn/fix-geometry/raw/master/images/01-language.png
 
 #### 2.1 加载多边形数据文件
 
-在QGIS左侧图标寻找`添加文本数据图层`（ 02-wkt.png），然后加载多边形数据文件，注意分隔符（制表符）、表头（首行包含字段名称）以及几何图形定义（WKT）选项，之后按照默认值即可加载多边形数据到地图上。
+在QGIS左侧图标寻找`添加文本数据图层`（  ![image](http://github.com/asdawn/fix-geometry/raw/master/images/02-wkt.png)），然后加载多边形数据文件，注意分隔符（制表符）、表头（首行包含字段名称）以及几何图形定义（WKT）选项，之后按照默认值即可加载多边形数据到地图上。
 
-03-wkt-1.png
+ ![image](http://github.com/asdawn/fix-geometry/raw/master/images/03-wkt-1.png)
 
     注意：由于示例数据比较随意，加载后可能只能看到一个三角形，这个没有问题，不影响本教程，请继续。
 
@@ -45,8 +45,8 @@ http://github.com/asdawn/fix-geometry/raw/master/images/01-language.png
 #### 2.2 修复有问题的多边形
 
 菜单菜单`处理`->`工具箱`，在出现的工具箱区域搜索`v.clean`，在搜索结果中双击启用该工具。`Layer to clean`选择要处理的图层，然后`Threahold`设定为0.0001（0.0001°大约为10米，必要时可自行调整），然后`run`，得到清理后的图层（默认名为`cleaned`）。
+ ![image](http://github.com/asdawn/fix-geometry/raw/master/images/04-cleaned.png)
 
-04-cleaned.png
 
 此时已经修正了几何形状自相交的错误，但并未删除误操作绘制的那个极小的多边形，因为程序并不知道哪个是有用的。
 
@@ -55,8 +55,8 @@ http://github.com/asdawn/fix-geometry/raw/master/images/01-language.png
 此处假设那些极小的多边形是误操作绘制的，清除掉即可。在`图层面板`右键点击修正的图层，选择`打开属性表`，选择窗口上的`打开字段计算器`图标（一般是倒数第二个），然后去掉`仅更新选中要素`的对勾，`输出字段名称`为*area*，表达式部分设定为
 
     $area
+![image](http://github.com/asdawn/fix-geometry/raw/master/images/05-area.png)
 
-05-area.png
 
 然后执行计算，就可以看到每个多边形的面积（单位自动切换为平方米），可以按照面积进行排序，选择面积过小的多边形（例如几平米、低于50平米的，地图上有高亮显示，可自行判断阈值），删除它们（通过`delete selected feature`图标，第6个），然后保存编辑（通过`切换编辑模式`图标，第1个），关闭属性表预览窗口。之后在`图层面板`右键另存图层为shp或者geojson文件即可。
 
