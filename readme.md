@@ -41,7 +41,7 @@
 
 #### 2.2 修复有问题的多边形
 
-菜单菜单`处理`->`工具箱`，在出现的工具箱区域搜索`v.clean`，在搜索结果中双击启用该工具。`Layer to clean`选择要处理的图层，然后`Threahold`设定为0.0001（0.0001°大约为10米，必要时可自行调整），然后`run`，得到清理后的图层（默认名为`cleaned`）。
+菜单`处理`->`工具箱`，在出现的工具箱区域搜索`v.clean`，在搜索结果中双击启用该工具。`Layer to clean`选择要处理的图层，然后`Threahold`设定为0.0001（0.0001°大约为10米，必要时可自行调整），然后`run`，得到清理后的图层（默认名为`cleaned`）。
  ![image](https://github.com/asdawn/fix-geometry/raw/master/images/04-cleaned.png)
 
 
